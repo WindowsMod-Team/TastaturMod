@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TastaturMod – Automatisierte Tastensteuerung via Mausklick</title>
+    <style>
+        /* --- FORMELLES DESIGN (LIGHT MODE) FÜR 16:9 MONITORE --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9; /* Heller, professioneller Hintergrund */
+            color: #1e293b; /* Dunkelgrauer Text für beste Lesbarkeit */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 20px 40px;
+            width: 100%;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        /* --- HAUPTBEREICH (VOLLE 16:9 AUSNUTZUNG) --- */
+        main {
+            max-width: 1400px;
+            width: 100%;
+            margin: 40px auto;
+            padding: 0 40px;
+            flex-grow: 1;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr; /* Zwei gleichwertige Spalten */
+            gap: 50px;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            color: #0f172a;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        p.intro {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #475569;
+            margin-bottom: 25px;
+        }
+
+        /* --- PRODUKTMERKMALE --- */
+        .features {
+            margin-bottom: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            color: #334155;
+        }
+
+        .feature-item strong {
+            color: #0f172a;
+        }
+
+        .check-icon {
+            color: #16a34a;
+            font-weight: bold;
+        }
+
+        /* --- RECHTE SPALTE: DOWNLOAD & ANLEITUNG --- */
+        .control-panel {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            color: #0f172a;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+
+        /* --- STEUERUNGSTABELLE --- */
+        .control-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .control-table th, .control-table td {
+            text-align: left;
+            padding: 10px 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .control-table th {
+            background-color: #f8fafc;
+            color: #475569;
+            font-weight: 600;
+        }
+
+        .key-badge {
+            background-color: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-family: monospace;
+            font-weight: bold;
+        }
+
+        /* --- FORMALER GRÜNER DOWNLOAD-BUTTON --- */
+        .btn-download {
+            display: block;
+            background-color: #16a34a; /* Seriöses, klares Grün */
+            color: #ffffff;
+            font-size: 1.15rem;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            padding: 14px 28px;
+            border-radius: 6px;
+            transition: background-color 0.15s ease-in-out;
+            box-shadow: 0 2px 4px rgba(22, 163, 74, 0.2);
+        }
+
+        .btn-download:hover {
+            background-color: #15803d; /* Dunkleres Grün im Fokus */
+        }
+
+        .trust-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-top: 12px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #ffffff;
+            border-top: 1px solid #e2e8f0;
+            padding: 20px 40px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #64748b;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="brand">TastaturMod</div>
+            <div style="font-size: 0.9rem; color: #64748b;">Tipp: Verschieben Sie die Verknüpfung der .exe in den Autostart Ordner (Siehe PDF) | v2.0.0</div>
+        </div>
+    </header>
+
+    <main>
+        <div>
+            <h1>Tastatursteuerung Komplett ohne Tastatur-Hardware.</h1>
+            <p class="intro">
+                Das <strong>TastaturMod Tool</strong> wurde speziell für den Office-Einsatz und leicht-Gaming entwickelt. Sie ermöglicht das ununterbrochene, hochfrequente Senden von Tastaturbefehlen über eine minimalistische, rahmenlose Oberfläche.
+            </p>
+            
+            <div class="features">
+                <div class="feature-item">
+                    <span class="check-icon">✓</span>
+                    <span><strong>Hochfrequentes Signal-Intervall:</strong> Die Anwendung arbeitet ununterbrochen mit einer präzisen Taktung von exakt 15 Millisekunden im Hintergrund.</span>
+                </div>
+                <div class="feature-item">
+                    <span class="check-icon">✓</span>
+                    <span><strong>Unsichtbare Gestensteuerung:</strong> Keine störenden Icons in der Taskleiste – das Interface wird komplett flexibel über die Maus gesteuert.</span>
+                </div>
+                <div class="feature-item">
+                    <span class="check-icon">✓</span>
+                    <span><strong>Nahtlose Windows-Integration:</strong> Ein virtuelles Overlay garantiert die dauerhafte Funktion im Hintergrund. Parallele Richtungseingaben sind jederzeit möglich.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-panel">
+            <h2>Dokumentation der Steuerung</h2>
+            
+            <table class="control-table">
+                <thead>
+                    <tr>
+                        <th>Funktion</th>
+                        <th>Tastaturbelegung (Maus)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Bildschirmtastatur EIN / AUS</strong></td>
+                        <td><span class="key-badge">Mausrad-Doppelklick</span></td>
+                    </tr>
+                    <tr>
+                        <td>Steuerungs-Box EIN / AUS</td>
+                        <td><span class="key-badge">Rechts-Doppelklick</span></td>
+                    </tr>
+                    <tr>
+                        <td>Dauerklick aktivieren</td>
+                        <td>Eingabe im Textfeld + Klick auf <span class="key-badge">OK</span></td>
+                    </tr>
+                    <tr>
+                        <td>Dauerklick deaktivieren</td>
+                        <td>Klick auf <span class="key-badge">Stopp</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <a href="https://github.com/WindowsMod-Team/TastaturMod/releases/download/v2.0.0/TastaturMod.zip" download class="btn-download">
+                Software-Paket herunterladen (.ZIP)
+            </a>
+            <div class="trust-note">
+                Geprüfte Signatur. Kompatibel mit Windows 10 und Windows 11 (64-Bit).
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2026 TastaturMod. Entwickelt für optimierte Office-Arbeitsplätze. Alle Rechte vorbehalten.
+    </footer>
+
+</body>
+</html>
